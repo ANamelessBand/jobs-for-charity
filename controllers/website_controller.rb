@@ -5,4 +5,9 @@ class WebsiteController < ApplicationController
     @title = "404: Droid not found"
     erb :'not_found.html'
   end
+
+  get '/magic/' do
+    erb :magic
+  end
 end
+
