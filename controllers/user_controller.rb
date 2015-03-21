@@ -13,12 +13,7 @@ class UserController < ApplicationController
 
     login_user user
 
-    redirect '/'
-  end
-
-  get '/login' do
-    @title = "Welcome to Tasks for Charity"
-    erb :signupin
+    redirect '/dashboard'
   end
 
   post '/login' do
@@ -28,7 +23,7 @@ class UserController < ApplicationController
     user = User.find(username: username) #add password check too
     if user
       login_user user
-      redirect '/'
+      redirect '/dashboard'
     else
       # add error and print correct erb instead of redirect
       redirect '/user/'

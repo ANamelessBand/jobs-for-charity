@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
 
 	before do
     @navigation_links = [
-                          NavigationLink.new(NavigationLink.dashboard_id, '/', 'Dashboard'),
+                          NavigationLink.new(NavigationLink.dashboard_id, '/dashboard', 'Dashboard'),
                         ]
   end
 end

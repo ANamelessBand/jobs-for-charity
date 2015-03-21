@@ -11,6 +11,12 @@ class WebsiteController < ApplicationController
   end
 
   get '/' do
+    redirect '/dashboard' if logged?
+    @title = "Welcome to Tasks for Charity"
+    erb :signupin
+  end
+
+  get '/dashboard' do
     @title = 'Dashboard'
 
     @tasks = Task.take LAST_TASKS_COUNT
