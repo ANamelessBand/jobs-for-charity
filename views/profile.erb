@@ -1,37 +1,51 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-      
-<table class="table table-striped table-hover vertical-middle">
-<tbody>
-<tr>
-	<td rowspan="5"><img src=<%= "/img/users/#{@user.id}.png" %> width="200"/></td>
-</tr>
-<tr>
-	<td>Completed tasks</td>
-	<td><%= @completedTasksCount %></td>
-</tr>
-<tr>
-	<td>Total donated amount</td>
-	<td><%= @rewardsDonated %></td>
-</tr>
-<tr>
-	<td>Average rating</td>
-	<td><%= @avgRating %></td>
-</tr>
-<tr>
-	<td colspan="2">
-		<% if @recentlyCompleted.empty? %>
-			<span>No completed tasks to show.</span>
-		<% else %>
-			<span>Recently completed tasks:</span>
-			<ul class="list-group">
-			<% @recentlyCompleted.each do |title| %>
-				<li class="list-group-item"><%= title %></li>
-			<% end %>
-			</ul>
-		<% end %>
-	</td>
-</tr>
-</tbody>
-</table>
+<div class="col-md-2">
+  <a href="#" class="thumbnail"><img src=<%= "/img/users/#{@user.id}.png" %> alt="..." /></a>
+  <h3 class="text-center user-name"><%= @user.username %></h3>
+</div>
+<div class="col-md-10">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#stats" data-toggle="tab">Stats</a></li>
+    <li><a href="#employer" data-toggle="tab">Employer record</a></li>
+    <li><a href="#employee" data-toggle="tab">Employee record</a></li>
+  </ul>
+  <div class="tab-content">
+
+    <div class="tab-pane active col-md-12" id="stats">
+      <table class="table table-striped book-details">
+        <tr>
+          <th>
+            Completed tasks
+          </th>
+          <td>
+            <%= @completedTasksCount %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Total donated amount
+          </th>
+          <td>
+            <%= @rewardsDonated %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Average rating
+          </th>
+          <td>
+            <%= @avgRating %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="tab-pane col-md-12" id="employer">
+      <%= show_tasks_table [] %>
+    </div>
+
+    <div class="tab-pane col-md-12" id="employee">
+      <%= show_tasks_table [] %>
+    </div>
+
+  </div>
 </div>
