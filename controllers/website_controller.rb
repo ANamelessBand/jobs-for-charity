@@ -13,12 +13,22 @@ class WebsiteController < ApplicationController
   get '/' do
     @title = 'Dashboard'
 
-    #@tasks = Tasks.newest.take LAST_TASKS_COUNT
-    @tasks = [{title: 'asdf', charity: 'Red cross', reward: 200},
-              {title: 'asdf', charity: 'Red cross', reward: 200},
-              {title: 'asdf', charity: 'Red cross', reward: 200}
-            ]
+    @tasks = Task.take LAST_TASKS_COUNT
     erb :'dashboard.html'
+  end
+
+  get '/add' do
+    @title = 'Publish a task'
+    erb :'add_task.html'
+  end
+
+  post '/add-task' do
+    title = params[:task_title]
+    description = params[:task_description]
+    reward = params[:task_reward]
+    location = params[:task_location]
+    add_task logged_user, title, description, reward, location
+    redirect NAMESPACE
   end
 end
 
