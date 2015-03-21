@@ -15,8 +15,8 @@
     <tbody>
       <% tasks_collection.each do |task| %>
         <tr>
-          <td><%= task.title %></td>
-          <td><%= to_link "user/#{task.user.id}", task.user.username %></td>
+          <td><%= to_link "/tasks/#{task.id}", task.title %></td>
+          <td><%= to_link "/user/#{task.user.id}", task.user.username %></td>
           <td><%= task.user.charity_types.map(&:name).join", " %></a></td>
           <td><%= sprintf("$ %0.02f", task.reward.to_f) %></td>
         </tr>
