@@ -2,15 +2,15 @@ class ProfileController < ApplicationController
   NAMESPACE = '/profile'
   
   get '/:id' do
-	@title = "zomg"
+	@title = "User information"
 	@user = User.find(id: params[:id]);
 	
-	@rewards = 0
+	@rewardsDonated = 0
 	ratingsSum = 0;
 	
 	completedApplications = Application.where(user: @user, status: 3).all
 	completedApplications.each do |application|
-	  @rewards += (application.task.reward)*(application.share)
+	  @rewardsDonated += (application.task.reward)*(application.share)
 	  ratingsSum += application.rating
 	end
 	
@@ -19,6 +19,11 @@ class ProfileController < ApplicationController
 	  @avgRating = "Not available"
 	else
 	  @avgRating = ratingsSum/@completedTasksCount
+	end
+	
+	@recentlyCompleted = []
+	completedApplications.last(PROFILE_RECENTLY_COMPLETED_COUNT).each do |recentTask|
+	  recentlyCompleted.push(recentTask.title)
 	end
 	
     erb :profile
