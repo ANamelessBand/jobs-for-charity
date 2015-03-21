@@ -28,5 +28,18 @@ class TasksController < ApplicationController
 
     redirect NAMESPACE
   end
+
+  get '/:id' do
+    task = Task.find(id: params[:id])
+
+    if task.nil?
+      status 404
+      erb :not_found
+    end
+
+    @title = task.title
+
+    erb :magic_task_summary, locals: {task: task}
+  end
 end
 
