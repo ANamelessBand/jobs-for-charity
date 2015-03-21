@@ -13,7 +13,6 @@ module ApplicationHelpers
   end
 
   def show_tasks_table(tasks)
-    @tasks_collection = tasks
-    erb :'tasks_table.html'
+    erb :'tasks_table.html', locals: {tasks_collection: tasks}
   end
 end

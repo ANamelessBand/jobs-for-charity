@@ -1,4 +1,4 @@
-<% if @tasks.empty? %>
+<% if tasks_collection.empty? %>
   <div class="alert alert-warning">
   No tasks found
   </div>
@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @tasks.each do |task| %>
+      <% tasks_collection.each do |task| %>
         <tr>
           <td><%= task.title %></td>
           <td><%= task.user.charity_types.map(&:name).join", " %></a></td>
