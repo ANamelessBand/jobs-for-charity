@@ -9,4 +9,7 @@ class User < Sequel::Model
     validates_presence [:username, :password, :email]
     validates_unique :username, :email
   end
+
+  def recently_completed
+  end
 end
