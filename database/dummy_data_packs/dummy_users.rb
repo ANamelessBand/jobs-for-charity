@@ -1,4 +1,5 @@
-names = ['TheUser']
+names = ['TheUser',
+'amanda']
 
 names.each do |name|
   dummy_user = User.new username: name,
