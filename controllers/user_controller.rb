@@ -17,6 +17,7 @@ class UserController < ApplicationController
   end
 
   get '/login' do
+    @title = "Welcome to Tasks for Charity"
     erb :signupin
   end
 

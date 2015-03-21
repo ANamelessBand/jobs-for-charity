@@ -1,6 +1,13 @@
 class TasksController < ApplicationController
   NAMESPACE = '/tasks/'
 
+  get '/' do
+    @title = 'All Tasks'
+
+    @tasks = Task.all
+    erb :'tasks_table.html'
+  end
+
   get '/add' do
     @title = 'Publish a task'
     erb :'add_task.html'

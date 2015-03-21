@@ -1,5 +1,5 @@
 <div class="col-md-10">
-  <h3>Tasks available</h3>
+  <h3>Available tasks</h3>
   <%= show_tasks_table @tasks %>
-  <div>See all</div>
+  <div><%= to_link "/tasks/", "See all" %></div>
 </div>
