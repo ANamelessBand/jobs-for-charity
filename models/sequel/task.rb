@@ -15,4 +15,17 @@ class Task < Sequel::Model
   def owner
     user
   end
+
+  def status_string
+    case state
+    when 0
+      'new'
+    when 1
+      'in progress'
+    when 2
+      'canceled'
+    when 3
+      'completed'
+    end
+  end
 end
