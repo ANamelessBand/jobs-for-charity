@@ -3,7 +3,6 @@ class ApplicationController < Sinatra::Base
 
   helpers ApplicationHelpers
   helpers UserHelpers
-  helpers WebsiteHelpers
 
 	before do
     @navigation_links = [

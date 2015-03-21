@@ -66,7 +66,8 @@ Dir.glob('./controllers/**/*.rb').each &require_file
 
 controllers = [
                 WebsiteController,
-                UserController
+                UserController,
+                TasksController
               ]
 
 controllers.each do |controller|

@@ -7,16 +7,16 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th>Charity</th>
+        <th>Charities</th>
         <th>Reward</th>
       </tr>
     </thead>
     <tbody>
       <% @tasks.each do |task| %>
         <tr>
-          <td><%= task[:title] %></td>
-          <td><%= task[:charity] %></a></td>
-          <td><%= task[:reward] %></td>
+          <td><%= task.title %></td>
+          <td><%= task.user.charity_types.map(&:name).join", " %></a></td>
+          <td><%= sprintf("$ %0.02f", task.reward.to_f) %></td>
         </tr>
       <% end %>
     </tbody>

@@ -1,5 +1,5 @@
 <table class="table table-striped table-hover">
-  <form id="task-add-form" class="form-horizontal" method="post" action="/add-task" role="form">
+  <form id="task-add-form" class="form-horizontal" method="post" action="/tasks/add-task" role="form">
     <fieldset>
       <div class="col-md-4 from-top-2">
       <label>Title</label>
@@ -9,12 +9,12 @@
       <textarea class="form-control" placeholder="Two story house, 100m gutters, need it done by sunday" required="true" name="task_description"></textarea>
       <br />
       <label>Reward</label>
-      <input type="text" class="form-control" placeholder="42$" required="true" name="task_reward">
+      <input type="text" class="form-control" placeholder="42" required="true" name="task_reward">
       <br />
       <label>Location</label>
       <input type="text" class="form-control" placeholder="London, UK" required="true" name="task_location">
       <br />
-      <button type="submit" id="save_button" name="save_button" class="btn btn-success">Post task!</button>
+      <button type="submit" id="save_button" name="save_button" class="btn btn-success">Post task</button>
       </div>
     </fieldset>
   </form>
