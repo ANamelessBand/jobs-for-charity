@@ -5,4 +5,7 @@
   <h3>Available tasks</h3>
   <%= show_tasks_table @tasks %>
   <div><%= to_link "/tasks/", "See all" %></div>
+  <h3>Recently Completed Tasks</h3>
+  <%= show_tasks_table @completed_tasks %>
+  <div><%= to_link "/tasks/?completed=1", "See all" %></div>
 </div>

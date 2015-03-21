@@ -20,7 +20,8 @@ class WebsiteController < ApplicationController
   get '/dashboard' do
     @title = 'Dashboard'
 
-    @tasks = Task.take LAST_TASKS_COUNT
+    @tasks = Task.where(state: 0).take LAST_TASKS_COUNT
+    @completed_tasks = Task.where(state: 3).take LAST_TASKS_COUNT
     erb :'dashboard.html'
   end
 end

@@ -4,7 +4,10 @@ class TasksController < ApplicationController
   get '/' do
     @title = 'All Tasks'
 
-    show_tasks_table Task.all
+    state = 0
+    state = 3 if params[:completed]
+
+    show_tasks_table Task.where(state: state).all
   end
 
   get '/add' do
