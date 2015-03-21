@@ -36,14 +36,14 @@
               <%= logged_user.username.split(" ").first %>&nbsp;<b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= to_link "/user/#{logged_user.id}", "Моят профил" %></li>
-              <li><%= to_link "/user/settings", "Настройки" %></li>
+              <li><%= to_link "/user/#{logged_user.id}", "My Profile" %></li>
+              <li><%= to_link "/user/settings", "Settings" %></li>
               <li class="divider"></a>
-              <li><a href="user/logout">Изход</a></li>
+              <li><a href="/user/logout">Sign out</a></li>
             </ul>
           </li>
           <% else %>
-          <li><a href="user/login">Влез</a></li>
+          <li><a href="/user/login">Sign in</a></li>
           <% end %>
         </ul>
       </div>

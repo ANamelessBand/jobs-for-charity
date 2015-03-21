@@ -12,6 +12,12 @@ class UserController < ApplicationController
     user.save
 
     login_user user
+
+    redirect '/'
+  end
+
+  get '/login' do
+    erb :signupin
   end
 
   post '/login' do
