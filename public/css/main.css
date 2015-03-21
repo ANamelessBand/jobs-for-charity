@@ -12,3 +12,9 @@
 html{
     font:1em/1.5 Georgia, serif;
 }
+
+
+.charity-description {
+  display: block;
+  padding-left: 50px;
+}
