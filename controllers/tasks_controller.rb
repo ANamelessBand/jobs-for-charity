@@ -4,8 +4,7 @@ class TasksController < ApplicationController
   get '/' do
     @title = 'All Tasks'
 
-    @tasks = Task.all
-    erb :'tasks_table.html'
+    show_tasks_table Task.all
   end
 
   get '/add' do

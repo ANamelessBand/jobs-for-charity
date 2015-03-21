@@ -7,17 +7,26 @@ class UserController < ApplicationController
     username = params[:username]
     password = params[:password]
     email = params[:email]
+    charity_types = params.keys.select { |key| key.start_with? 'charity_type' }
+                           .map { |key| key.sub("charity_type_", "").to_i }
 
     user = User.new username: username, password: password, email: email
     user.save
 
+    print charity_types
+    charity_types.each do |charity_type|
+        user.add_charity_type CharityType.find(id: charity_type)
+    end
+
     login_user user
 
-    redirect '/'
+    redirect '/dashboard'
   end
 
   get '/login' do
-    @title = "Welcome to Tasks for Charity"
+    @title = 'Log in!'
+    @charities = CharityType.all
+    
     erb :signupin
   end
 
@@ -28,7 +37,7 @@ class UserController < ApplicationController
     user = User.find(username: username) #add password check too
     if user
       login_user user
-      redirect '/'
+      redirect '/dashboard'
     else
       # add error and print correct erb instead of redirect
       redirect '/user/'

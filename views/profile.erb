@@ -1,0 +1,39 @@
+
+<div class="panel panel-default">
+    <div class="panel-heading"><%= @user.username %></div>
+    <div class="panel-body">
+      
+<table class="table table-striped table-hover vertical-middle">
+<tbody>
+<tr>
+	<td rowspan="5"><img src=<%= "/img/users/#{@user.id}.png" %> width="200"/></td>
+</tr>
+<tr>
+	<td>Completed tasks</td>
+	<td><%= @completedTasksCount %></td>
+</tr>
+<tr>
+	<td>Total donated amount</td>
+	<td><%= @rewardsDonated %></td>
+</tr>
+<tr>
+	<td>Average rating</td>
+	<td><%= @avgRating %></td>
+</tr>
+<tr>
+	<td colspan="2">
+		<% if @recentlyCompleted.empty? %>
+			<span>No completed tasks to show.</span>
+		<% else %>
+			<span>Recently completed tasks:</span>
+			<ul class="list-group">
+			<% @recentlyCompleted.each do |title| %>
+				<li class="list-group-item"><%= title %></li>
+			<% end %>
+			</ul>
+		<% end %>
+	</td>
+</tr>
+</tbody>
+</table>
+</div>
