@@ -7,7 +7,7 @@ class WebsiteController < ApplicationController
   end
 
   get '/magic/' do
-    erb :magic
+    erb :signupin
   end
 end
 
