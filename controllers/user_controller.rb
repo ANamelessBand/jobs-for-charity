@@ -27,5 +27,9 @@ class UserController < ApplicationController
       redirect '/user/'
     end
   end
+
+  get '/logout' do
+    logout_user
+  end
 end
 

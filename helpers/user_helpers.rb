@@ -10,4 +10,9 @@ module UserHelpers
   def login_user(user)
       session[:user] = user.id
   end
+
+  def logout_user
+      session[:user] = nil
+      redirect '/'
+  end
 end
