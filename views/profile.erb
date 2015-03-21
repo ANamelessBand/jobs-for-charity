@@ -1,3 +1,38 @@
-SOME DATA HERE
+SOME DATA HERE<br/>
 
-<%= @user %>
+<%= @user.username %><br/>
+<%= @rewards %><br/><br/>
+<%= @avgRating %><br/>
+
+
+<%= @user.inspect %>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><%= @user.username %></div>
+    <div class="panel-body">
+      
+<table class="table table-striped table-hover vertical-middle">
+<tbody>
+<tr>
+	<td rowspan="4"><img src=<%= "/img/users/#{@user.id}.png" %> /></td>
+</tr>
+<tr>
+	<td>Completed tasks</td>
+	<td><%= @completedTasksCount %></td>
+</tr>
+<tr>
+	<td>Average rating</td>
+	<td><%= @avgRating %></td>
+</tr>
+<tr>
+	<td colspan="2">
+		<span>Recently completed tasks:</span>
+		<ul class="list-group">
+			<li class="list-group-item">asdasd</li>
+			<li class="list-group-item"> asdasd</li>
+		</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+</div>
