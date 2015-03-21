@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jobs for charity :: <%= @title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="/css/main.css" rel="stylesheet" media="screen" />
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+  </head>
+  <body>
+    <div class="container container-body">
+      <div class="row">
+        <div class="page-header">
+          <h1><%= @title %></h1>
+        </div>
+        <%= yield %>
+      </div>
+      <footer id="footer" class="row">
+        <p>
+          Jobs for Charity - Facebook Hackaton 2015
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
+
