@@ -13,6 +13,7 @@ class WebsiteController < ApplicationController
   get '/' do
     redirect '/dashboard' if logged?
     @title = "Welcome to Tasks for Charity"
+    @charities = CharityType.all
     erb :signupin
   end
 

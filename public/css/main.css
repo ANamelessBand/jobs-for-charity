@@ -18,3 +18,7 @@ html{
   display: block;
   padding-left: 50px;
 }
+
+#add-task a {
+  color: white;
+}
