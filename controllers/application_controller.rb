@@ -1,3 +1,3 @@
 class ApplicationController < Sinatra::Base
-  #helpers go here
+  helpers ApplicationHelpers
 end
