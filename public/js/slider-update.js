@@ -1,0 +1,1 @@
+function donationPercUpdateSlider(){	var val = $("#donatePercSlider").val();	$('#donatePercBox').html(val+'%');}
