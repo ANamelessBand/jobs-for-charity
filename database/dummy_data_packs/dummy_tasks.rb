@@ -3,7 +3,7 @@ tasks = [
     user: User.first,
     title: "Mow my lawn",
     description: "I need someone to clean my lawn for me.",
-    award: 20.00,
+    reward: 20.00,
     location: "London, UK"
   }
 ]

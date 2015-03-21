@@ -6,7 +6,7 @@ class Task < Sequel::Model
 
   def validate
     super
-    validates_presence [:title, :description, :location, :award]
+    validates_presence [:title, :description, :location, :reward]
   end
 
   class << self
