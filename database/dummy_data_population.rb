@@ -4,6 +4,7 @@ Dir.glob('./models/sequel/*.rb').each { |file| require file }
 
 tables = [
           'charity_types',
+          'charities',
           'users',
           'tasks',
           'applications'
