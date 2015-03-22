@@ -51,8 +51,8 @@ class UserController < ApplicationController
 
   get '/top' do
     @title = "Top Users"
-    @top_employers = User.top_employers
-    @top_employees = User.top_employees
+    @top_employers = User.top_employers.take TOP_USERS_TO_SHOW
+    @top_employees = User.top_employees.take TOP_USERS_TO_SHOW
 
     erb :'topusers.html'
   end
