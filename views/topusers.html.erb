@@ -3,9 +3,9 @@
     <div class="panel-heading">Top Task Doers</div>
     <div class="panel-body">
       <% @top_employees.each do |user| %>
-      <h4><%= user.username %></h4>
+      <h4><%= to_user_link user %></h4>
       <img src=<%= "/img/users/#{user.id}.png" %> alt="..." class="img-thumbnail avatar"/>
-      <span><em>Posted tasks for <%= user.amount_paid %> $</em></span>
+      <span><em>Posted tasks for <%= user.amount_paid.to_f %> $</em></span>
       <br />
       <hr />
       <% end %>
@@ -18,9 +18,9 @@
     <div class="panel-heading">Top Task Posters</div>
     <div class="panel-body">
       <% @top_employers.each do |user| %>
-      <h4><%= user.username %></h4>
+      <h4><%= to_user_link user %></h4>
       <img src=<%= "/img/users/#{user.id}.png" %> alt="..." class="img-thumbnail avatar"/>
-      <span><em>Gave <%= user.applications_donation %>$ from his rewards for charity</em></span>
+      <span><em>Gave <%= user.applications_donation.to_f %>$ from his rewards for charity</em></span>
       <br />
       <hr />
       <% end %>

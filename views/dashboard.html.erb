@@ -1,6 +1,6 @@
 <div class="col-md-10">
   <% if logged? %>
-  <div id="add-task" class="btn btn-success"><%= to_link "/tasks/add", "Add a new task" %></div>
+  <%= to_link "/tasks/add", "<div id='add-task' class='btn btn-success'>Add a new task</div>" %>
   <% end %>
   <h3>Available tasks</h3>
   <%= show_tasks_table @tasks %>
