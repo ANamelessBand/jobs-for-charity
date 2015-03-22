@@ -27,3 +27,7 @@ html{
   max-height: 100px;
   max-width: 100px;
 }
+
+ul.ui-autocomplete.ui-menu {
+	background-color : white
+}

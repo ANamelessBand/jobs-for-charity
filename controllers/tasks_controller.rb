@@ -56,6 +56,7 @@ class TasksController < ApplicationController
 
     @title = task.title
 
+	@current_user = logged_user
     erb :task_summary, locals: {task: task}
   end
 

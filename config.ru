@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'date'
 require 'bundler/setup'
+require 'json'
 
 Bundler.require :default
 

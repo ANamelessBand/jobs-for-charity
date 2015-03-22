@@ -59,6 +59,8 @@ class User < Sequel::Model
   def completed_applications
     Application.where(user: self, status: 3).all
   end
+  
+  def 
 
   def recently_completed_applications
     appliactions_completed = []
@@ -87,5 +89,9 @@ class User < Sequel::Model
 
   def applications
     Application.where(user: self).all
+  end
+  
+  def interested_in_charities
+    charity_types.map(&:charities).flatten.uniq
   end
 end
