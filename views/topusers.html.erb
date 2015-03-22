@@ -5,7 +5,7 @@
       <% @top_employees.each do |user| %>
       <h4><%= to_user_link user %></h4>
       <img src=<%= "/img/users/#{user.id}.png" %> alt="..." class="img-thumbnail avatar"/>
-      <span><em>Posted tasks for <%= user.amount_paid.to_f %> $</em></span>
+      <span><em>Posted tasks for <%= user.applications_donation.to_f %> $</em></span>
       <br />
       <hr />
       <% end %>
@@ -20,7 +20,7 @@
       <% @top_employers.each do |user| %>
       <h4><%= to_user_link user %></h4>
       <img src=<%= "/img/users/#{user.id}.png" %> alt="..." class="img-thumbnail avatar"/>
-      <span><em>Gave <%= user.applications_donation.to_f %>$ from his rewards for charity</em></span>
+      <span><em>Gave <%= user.amount_paid.to_f %>$ from his rewards for charity</em></span>
       <br />
       <hr />
       <% end %>
