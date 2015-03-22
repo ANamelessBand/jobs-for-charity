@@ -40,6 +40,7 @@ class TasksController < ApplicationController
 
     if params[:accept]
       task.update state: 3
+      task.approved_application.update status: 3
     else
       task.update state: 2
     end

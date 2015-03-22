@@ -69,7 +69,7 @@ class Task < Sequel::Model
   end
 
   def approved_application
-    Application.find(task: self, status: 1)
+    Application.find(task: self, status: 1) || Application.find(task: self, status: 3)
   end
 
   def asignee
