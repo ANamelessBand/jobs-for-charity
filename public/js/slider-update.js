@@ -1,1 +1,1 @@
-function donationPercUpdateSlider(){	var val = $("#donatePercSlider").val();	$('#donatePercBox').html(val+'%');};
+function donationPercUpdateSlider() {	var percentage = parseInt($("#donatePercSlider").val());  var reward = parseInt($("#reward")[0].textContent.substring(11)) || 0;  var forCharity = percentage / 100 * reward;  $("#percentage")[0].textContent = percentage.toPrecision(3) + '%';  $("#moneyForCharity")[0].textContent = '$' + forCharity.toPrecision(3);};
