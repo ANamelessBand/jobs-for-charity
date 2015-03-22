@@ -22,3 +22,8 @@ html{
 #add-task a {
   color: white;
 }
+
+.avatar {
+  max-height: 100px;
+  max-width: 100px;
+}

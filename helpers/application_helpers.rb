@@ -12,6 +12,10 @@ module ApplicationHelpers
       "<a #{class_tag} href='#{href}'>#{title}</a>"
   end
 
+  def to_user_link(user)
+      to_link "/user/#{user.id}", user.username
+  end
+
   def show_tasks_table(tasks)
     erb :'tasks_table.html', locals: {tasks_collection: tasks}
   end
