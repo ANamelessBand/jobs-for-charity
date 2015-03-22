@@ -35,13 +35,54 @@ class TasksController < ApplicationController
     task = Task.find(id: params[:id])
 
     if task.nil?
-      status 404
-      erb :not_found
+      redirect "/not_found"
     end
 
     @title = task.title
 
-    erb :magic_task_summary, locals: {task: task}
+    erb :task_summary, locals: {task: task}
+  end
+
+  post '/review_application/:id' do
+    application = Application.find(id: params[:id])
+
+    if application.nil?
+      redirect "/not_found"
+    end
+
+    if params[:accept]
+      application.update status: 1
+      other_applications = Application.where(task: application.task).all
+                                      .select { |other_application| other_application.id != application.id }
+
+      other_applications.each do |other_application|
+          print other_application.inspect
+          other_application.update status: 2
+      end
+
+      application.task.update state: 1
+    else
+      application.update status: 2
+    end
+
+    redirect "/tasks/#{application.task.id}"
+  end
+
+  post '/add_application' do
+      task_id = params[:task_id]
+      share = params[:share].to_f / 100
+      charity = params[:charity]
+      motivation = params[:motivation]
+
+      task = Task.find(id: task_id)
+      if task.nil?
+        redirect "/not_found"
+      end
+
+      application = Application.new user: logged_user, task: task, share: share, motivation: motivation
+      application.save
+
+      redirect "/tasks/#{task_id}"
   end
 end
 
