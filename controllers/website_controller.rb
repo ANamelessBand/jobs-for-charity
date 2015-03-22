@@ -1,6 +1,6 @@
 class WebsiteController < ApplicationController
   NAMESPACE = '/'
-  
+
   not_found do
     @title = "404: Droid not found"
     erb :'not_found.html'
@@ -10,8 +10,13 @@ class WebsiteController < ApplicationController
     erb :signupin
   end
 
+  get '/index' do
+    @title = "Home"
+    erb :'index.html'
+  end
+
   get '/' do
-    redirect '/dashboard' if logged?
+    redirect '/index' if logged?
     @title = "Welcome to Tasks for Charity"
     @charities = CharityType.all
     erb :signupin

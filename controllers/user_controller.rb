@@ -2,7 +2,7 @@
 
 class UserController < ApplicationController
   NAMESPACE = '/user/'
-  
+
   post '/register' do
     username = params[:username]
     password = params[:password]
@@ -20,13 +20,13 @@ class UserController < ApplicationController
 
     login_user user
 
-    redirect '/dashboard'
+    redirect '/index'
   end
 
   get '/login' do
     @title = 'Log in!'
     @charities = CharityType.all
-    
+
     erb :signupin
   end
 
@@ -37,7 +37,7 @@ class UserController < ApplicationController
     user = User.find(username: username) #add password check too
     if user
       login_user user
-      redirect '/dashboard'
+      redirect '/index'
     else
       # add error and print correct erb instead of redirect
       redirect '/user/'
@@ -51,8 +51,8 @@ class UserController < ApplicationController
    get '/:id' do
     @title = "User information"
     @user = User.find(id: params[:id]);
-    
-  
+
+
     erb :profile
   end
 end
