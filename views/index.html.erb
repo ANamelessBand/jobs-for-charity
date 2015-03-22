@@ -2,7 +2,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">Just completed</div>
     <div class="panel-body">
-      <%= show_tasks_table Task.closed.last(PROFILE_RECENTLY_COMPLETED_COUNT).reverse %>
+      <%= show_tasks_table Task.completed.last(PROFILE_RECENTLY_COMPLETED_COUNT).reverse %>
     </div>
   </div>
 </div>
