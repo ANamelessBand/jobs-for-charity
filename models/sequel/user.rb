@@ -71,4 +71,8 @@ class User < Sequel::Model
   def recently_completed_tasks
     completed_tasks().last(::PROFILE_RECENTLY_COMPLETED_COUNT)
   end
+
+  def applications
+    Application.where(user: self).all
+  end
 end
