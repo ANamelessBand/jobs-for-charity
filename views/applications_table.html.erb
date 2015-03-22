@@ -18,7 +18,34 @@
         <tr>
           <td><%= to_link "/user/#{application.task.user.id}", application.task.user.username %></td>
           <td><%= to_link "/tasks/#{application.task.id}", application.task.title %></td>
-          <td><%= application.charity.title %></a></td>
+          <td>
+            <% if application.charity %>
+              <%= application.charity.title %>
+              <a href=<%= "#modal_#{application.charity.id}" %> class="btn btn-xs btn-primary" title="описание" data-toggle="modal">
+                <%= glyphicon_span 'info-sign' %>
+              </a>
+              <div class="modal fade" id=<%= "modal_#{application.charity.id}" %>>
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title"><%= application.charity.title %></h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>
+                      <div class="pull-left from-right-1">
+                        <img src=<%= "/img/users/#{1}.png" %> style="max-height:250px" />
+                      </div>
+                      <%= application.charity.description %>
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+          </td>
           <td><%= sprintf("%i\%", application.share.to_f * 100) %></td>
           <td><%= application.status_string %></td>
         </tr>
