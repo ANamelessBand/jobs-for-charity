@@ -2,7 +2,7 @@
   <% if logged? %>
   <%= to_link "/tasks/add", "<div id='add-task' class='btn btn-success'>Add a new task</div>" %>
   <% end %>
-  <h3>Available tasks</h3>
+  <h3>Active Tasks</h3>
   <%= show_tasks_table @tasks %>
   <div style="text-align: right"><%= to_link "/tasks/", "See all" %></div>
 </div>

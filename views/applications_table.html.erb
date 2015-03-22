@@ -9,6 +9,7 @@
         <th>Owner</th>
         <th>Task</th>
         <th>Charity</th>
+        <th>Reward</th>
         <th>Share</th>
         <th>Status</th>
       </tr>
@@ -19,6 +20,7 @@
           <td><%= to_link "/user/#{application.task.user.id}", application.task.user.username %></td>
           <td><%= to_link "/tasks/#{application.task.id}", application.task.title %></td>
           <td><%= application.charity.title %></a></td>
+          <td><%= sprintf("$ %0.02f", application.task.reward.to_f) %></td>
           <td><%= sprintf("%i\%", application.share.to_f * 100) %></td>
           <td><%= application.status_string %></td>
         </tr>
