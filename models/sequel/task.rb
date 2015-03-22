@@ -29,8 +29,15 @@ class Task < Sequel::Model
     end
   end
 
+  def approved_application
+    Application.find(task: self, status: 1)
+  end
+
   def asignee
-    approved_application = Application.find(id: self.id, status: 1)
-    approved_application ? approved_application.applicant : approved_application
+    approved_application ? approved_application.applicant : nil
+  end
+
+  def new_applications
+      applications.select { |application| application.status.zero? }
   end
 end

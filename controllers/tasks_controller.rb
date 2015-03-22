@@ -28,7 +28,7 @@ class TasksController < ApplicationController
                      location: location
     task.save
 
-    redirect NAMESPACE
+    redirect "/tasks/#{task.id}"
   end
 
   get '/:id' do
