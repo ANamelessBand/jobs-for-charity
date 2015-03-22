@@ -12,31 +12,27 @@ class User < Sequel::Model
 
   class << self
     def top_employers
-      all.sort do |a, b|
-        a.amount_paid <=> b.amount_paid
-      end
+      all.sort_by { |user| -user.amount_paid.to_f }
     end
 
     def top_employees
-      all.sort do |a, b|
-        a.applications_donation <=> b.applications_donation
-      end
+      all.sort_by { |user| -user.applications_donation.to_f }
     end
   end
 
   def applications_donation
     rewards_donated = 0
-    completed_applications().each do |application|
+    completed_applications.each do |application|
       rewards_donated += application.task.reward * application.share
     end
 
-	rewards_donated
+	  rewards_donated
   end
 
   def amount_earned
     rewards = 0
     completed_applications().each do |application|
-      rewards += application.task.reward
+      rewards += application.task.reward * (1 - application.share)
     end
 	rewards
   end
