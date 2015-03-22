@@ -1,0 +1,29 @@
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">Top Task Doers</div>
+    <div class="panel-body">
+      <% @top_employees.each do |user| %>
+      <h4><%= user.username %></h4>
+      <img src=<%= "/img/users/#{user.id}.png" %> alt="..." class="img-thumbnail avatar"/>
+      <span><em>Posted tasks for <%= user.amount_paid %> $</em></span>
+      <br />
+      <hr />
+      <% end %>
+      
+    </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">Top Task Posters</div>
+    <div class="panel-body">
+      <% @top_employers.each do |user| %>
+      <h4><%= user.username %></h4>
+      <img src=<%= "/img/users/#{user.id}.png" %> alt="..." class="img-thumbnail avatar"/>
+      <span><em>Gave <%= user.applications_donation %>$ from his rewards for charity</em></span>
+      <br />
+      <hr />
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -48,6 +48,15 @@ class UserController < ApplicationController
     logout_user
   end
 
+
+  get '/top' do
+    @title = "Top Users"
+    @top_employers = User.top_employers.take TOP_USERS_TO_SHOW
+    @top_employees = User.top_employees.take TOP_USERS_TO_SHOW
+
+    erb :'topusers.html'
+  end
+
    get '/:id' do
     @title = "User information"
     @user = User.find(id: params[:id]);
@@ -55,5 +64,6 @@ class UserController < ApplicationController
   
     erb :profile
   end
+
 end
 

@@ -10,6 +10,19 @@ class User < Sequel::Model
     validates_unique :username, :email
   end
 
+  class << self
+    def top_employers
+      all.sort do |a, b|
+        a.amount_paid <=> b.amount_paid
+      end
+    end
+
+    def top_employees
+      all.sort do |a, b|
+        a.applications_donation <=> b.applications_donation
+      end
+    end
+  end
 
   def applications_donation
     rewards_donated = 0
