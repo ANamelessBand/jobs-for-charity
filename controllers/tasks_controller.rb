@@ -31,6 +31,22 @@ class TasksController < ApplicationController
     redirect "/tasks/#{task.id}"
   end
 
+  post '/complete/:id' do
+    task = Task.find(id: params[:id])
+
+    if task.nil?
+      redirect "/not_found"
+    end
+
+    if params[:accept]
+      task.update state: 3
+    else
+      task.update state: 2
+    end
+
+    redirect "tasks/#{task.id}"
+  end
+
   get '/:id' do
     task = Task.find(id: params[:id])
 
