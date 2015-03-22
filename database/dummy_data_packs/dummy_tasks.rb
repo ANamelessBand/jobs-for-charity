@@ -37,7 +37,7 @@ tasks = [
   {
     user: User[4],
     title: "Babysit the children",
-    description: "My wife and I have an anniversary this Friday and we want to dinner otside. Unfortunately our parents are not in town and we neek someone to look after the children during the night.",
+    description: "My wife and I have an anniversary this Friday and we want to dinner otside. Unfortunately our parents are not in town and we need someone to look after the children during the night.",
     reward: 20.00,
     location: "South Hampton, UK"
   },
@@ -65,7 +65,7 @@ tasks = [
   {
     user: User[5],
     title: "Meet my parents",
-    description: "I'm looking for a good-looking woman to play my 'girlfriend' Wilma' during a dinner with my parents.",
+    description: "I'm looking for a good-looking woman to play my 'girlfriend Wilma' during a dinner with my parents.",
     reward: 100.00,
     location: "London, UK"
   }
