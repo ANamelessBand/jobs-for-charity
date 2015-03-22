@@ -40,11 +40,11 @@
     </div>
 
     <div class="tab-pane col-md-12" id="employer">
-      <%= show_tasks_table @user.tasks %>
+      <%= show_tasks_table @user.tasks.reverse %>
     </div>
 
     <div class="tab-pane col-md-12" id="employee">
-      <%= show_applications_table @user.applications %>
+      <%= show_applications_table @user.applications.reverse %>
     </div>
 
   </div>
