@@ -1,3 +1,10 @@
+<div class="container">
+  <div class="span8 offset2">
+    <h3><%= Task.completed.count.to_s + ' tasks completed by our users' %></h3>
+    <h3><%= sprintf("$ %0.02f raised for charity", Application.donations) %></h3>
+  </div>
+</div>
+
 <div class="col-md-6">
   <div class="panel panel-default">
     <div class="panel-heading">Recently completed</div>

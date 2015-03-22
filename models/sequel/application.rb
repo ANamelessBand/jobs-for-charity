@@ -12,6 +12,11 @@ class Application < Sequel::Model
   end
 
   class << self
+    def donations
+      where(status: 3).all.inject(0) do |sum, application|
+        sum + application.task.reward * application.share
+      end
+    end
   end
 
   def applicant
