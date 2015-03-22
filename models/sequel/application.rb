@@ -17,4 +17,17 @@ class Application < Sequel::Model
   def applicant
     user
   end
+
+  def status_string
+    case status
+    when 0
+      'open'
+    when 1
+      'accepted'
+    when 2
+      'rejected'
+    when 3
+      'completed'
+    end
+  end
 end
