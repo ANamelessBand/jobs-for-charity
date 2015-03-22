@@ -28,4 +28,9 @@ class Task < Sequel::Model
       'completed'
     end
   end
+
+  def asignee
+    approved_application = Application.find(id: self.id, status: 1)
+    approved_application ? approved_application.applicant : approved_application
+  end
 end
