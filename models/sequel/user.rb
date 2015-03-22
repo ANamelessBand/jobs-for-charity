@@ -90,6 +90,6 @@ class User < Sequel::Model
   end
 
   def interested_in_charities
-    charity_types.map(&:charities).flatten.uniq
+    CharityType.all.map(&:charities).flatten.uniq
   end
 end

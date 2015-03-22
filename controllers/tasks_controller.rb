@@ -40,6 +40,7 @@ class TasksController < ApplicationController
 
     if params[:accept]
       task.update state: 3
+      task.approved_application.update status: 3
     else
       task.update state: 2
     end
@@ -88,7 +89,7 @@ class TasksController < ApplicationController
   post '/add_application' do
       task_id = params[:task_id]
       share = params[:share].to_f / 100
-      charity = params[:charity]
+      charity = Charity.find(title: params[:charity])
       motivation = params[:motivation]
 
       task = Task.find(id: task_id)
@@ -96,7 +97,7 @@ class TasksController < ApplicationController
         redirect "/not_found"
       end
 
-      application = Application.new user: logged_user, task: task, share: share, motivation: motivation
+      application = Application.new user: logged_user, charity: charity, task: task, share: share, motivation: motivation
       application.save
 
       redirect "/tasks/#{task_id}"

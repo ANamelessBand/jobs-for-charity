@@ -16,9 +16,9 @@
     <tbody>
       <% applications_collection.each do |application| %>
         <tr>
-          <td><%= to_link "/user/#{application.user.id}", application.user.username %></td>
+          <td><%= to_link "/user/#{application.task.user.id}", application.task.user.username %></td>
           <td><%= to_link "/tasks/#{application.task.id}", application.task.title %></td>
-          <td><%= application.charity %></a></td>
+          <td><%= application.charity.title %></a></td>
           <td><%= sprintf("%i\%", application.share.to_f * 100) %></td>
           <td><%= application.status_string %></td>
         </tr>
