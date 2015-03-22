@@ -15,4 +15,8 @@ module ApplicationHelpers
   def show_tasks_table(tasks)
     erb :'tasks_table.html', locals: {tasks_collection: tasks}
   end
+
+  def show_applications_table(applications)
+    erb :'applications_table.html', locals: {applications_collection: applications}
+  end
 end
