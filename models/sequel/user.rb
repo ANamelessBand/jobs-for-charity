@@ -10,58 +10,65 @@ class User < Sequel::Model
     validates_unique :username, :email
   end
 
-  
-  def amount_donated_by_working
-    rewardsDonated = 0
-    Application.where(user: self, status: 3).all.each do |application|
-      rewardsDonated += (application.task.reward)*(application.share)
+
+  def applications_donation
+    rewards_donated = 0
+    completed_applications().each do |application|
+      rewards_donated += application.task.reward * application.share
     end
-	rewardsDonated
+
+	rewards_donated
   end
-  
+
   def amount_earned
     rewards = 0
-    Application.where(user: self, status: 3).all.each do |application|
+    completed_applications().each do |application|
       rewards += application.task.reward
     end
 	rewards
   end
-  
-  def avg_rating_as_worker
-    completedApplications = Application.where(user: self, status: 3).all
-    if completedApplications.size == 0
-      return "Not available"
+
+  def applications_rating
+    applications_completed = completed_applications()
+
+    if applications_completed.size.zero?
+      0
     else
-	  ratingsSum = 0
-	  completedApplications.each do |application|
+      ratingsSum = 0
+      applications_completed.each do |application|
         ratingsSum += application.rating
       end
-      return ratingsSum/completedApplications.size
+
+      ratingsSum / applications_completed.size
     end
   end
-  
-  def completed_tasks_as_worker_count
-    Application.where(user: self, status: 3).all.size
+
+  def completed_applications
+    Application.where(user: self, status: 3).all
   end
-  
-  def recently_completed_as_worker
-    tasksCompleted = []
-    Application.where(user: self, status: 3).all.last(PROFILE_RECENTLY_COMPLETED_COUNT).each do |application|
-	  tasksCompleted.push(application.task)
+
+  def recently_completed_applications
+    appliactions_completed = []
+    completed_applications().last(::PROFILE_RECENTLY_COMPLETED_COUNT).each do |application|
+	  completed_applications.push(application.task)
 	end
-	tasksCompleted
+	completed_applications
   end
-  
-  def amout_paid
+
+  def completed_tasks
+    Task.where(user: self, state:3).all
+  end
+
+  def amount_paid
     amount = 0
-    Task.where(user: self, status:3).all.each do |task|
-	  amount += task.reward
-	end
-	return amount
+    completed_tasks().each do |task|
+      amount += task.reward
+    end
+
+    amount
   end
-  
-  def recently_completed_as_employer
-    Task.where(user: self, status:3).all.last(PROFILE_RECENTLY_COMPLETED_COUNT)
+
+  def recently_completed_tasks
+    completed_tasks().last(::PROFILE_RECENTLY_COMPLETED_COUNT)
   end
-  
 end
