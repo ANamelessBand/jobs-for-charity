@@ -20,7 +20,7 @@ class UserController < ApplicationController
 
     login_user user
 
-    redirect '/index'
+    redirect '/dashboard'
   end
 
   get '/login' do
@@ -37,10 +37,10 @@ class UserController < ApplicationController
     user = User.find(username: username) #add password check too
     if user
       login_user user
-      redirect '/index'
+      redirect '/dashboard'
     else
       # add error and print correct erb instead of redirect
-      redirect '/user/'
+      redirect '/user/login'
     end
   end
 
@@ -51,8 +51,8 @@ class UserController < ApplicationController
 
   get '/top' do
     @title = "Top Users"
-    @top_employers = User.top_employers
-    @top_employees = User.top_employees
+    @top_employers = User.top_employers.take TOP_USERS_TO_SHOW
+    @top_employees = User.top_employees.take TOP_USERS_TO_SHOW
 
     erb :'topusers.html'
   end

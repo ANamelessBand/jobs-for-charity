@@ -1,6 +1,7 @@
 class NavigationLink
   def self.dashboard_id() 1; end
-  def self.top_users() 2; end
+  def self.top_users_id() 2; end
+  def self.home_id() 3; end
 
   attr_reader :id
   attr_reader :href

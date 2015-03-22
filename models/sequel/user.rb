@@ -85,6 +85,14 @@ class User < Sequel::Model
     Application.where(user: self).all
   end
 
+  def active_applications
+    applications.select { |application| application.status <= 1 }
+  end
+
+  def active_tasks
+    Task.where(user: self).all.select { |task| task.state <= 1 }
+  end
+
   def interested_in_charities
     CharityType.all.map(&:charities).flatten.uniq
   end

@@ -1,6 +1,6 @@
 <div class="col-md-6">
   <div class="panel panel-default">
-    <div class="panel-heading">Just completed</div>
+    <div class="panel-heading">Recently completed</div>
     <div class="panel-body">
       <%= show_tasks_table Task.completed.last(PROFILE_RECENTLY_COMPLETED_COUNT).reverse %>
     </div>
@@ -8,7 +8,7 @@
 </div>
 <div class="col-md-6">
   <div class="panel panel-default">
-    <div class="panel-heading">Just opened</div>
+    <div class="panel-heading">Recently opened</div>
     <div class="panel-body">
       <%= show_tasks_table Task.opened.last(PROFILE_RECENTLY_COMPLETED_COUNT).reverse %>
     </div>
