@@ -23,6 +23,6 @@ class CharityController < ApplicationController
         charity.add_charity_type CharityType.find(id: charity_type)
     end
 
-    redirect "/charity/#{charity.id}"
+    redirect "/"
   end
 end
