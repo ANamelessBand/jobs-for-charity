@@ -20,7 +20,7 @@ class UserController < ApplicationController
 
     login_user user
 
-    redirect '/index'
+    redirect '/dashboard'
   end
 
   get '/login' do
@@ -37,10 +37,10 @@ class UserController < ApplicationController
     user = User.find(username: username) #add password check too
     if user
       login_user user
-      redirect '/index'
+      redirect '/dashboard'
     else
       # add error and print correct erb instead of redirect
-      redirect '/user/'
+      redirect '/user/login'
     end
   end
 
