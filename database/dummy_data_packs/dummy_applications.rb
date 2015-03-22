@@ -1,16 +1,16 @@
 applicaitons = [
   {
     task: Task.first,
-    user: User[1],
+    user: User[2],
     share: 0.25,
     charity: Charity.first,
     motivation: "I like mowning lawns ^^"
   },
   {
     task: Task.first,
-    user: User[2],
+    user: User[3],
     share: 0.30,
-    charity: Charity.first,
+    charity: Charity[2],
     motivation: "I have the right professional qualification for this job!"
   }
 ]
