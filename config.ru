@@ -69,6 +69,7 @@ controllers = [
                 WebsiteController,
                 UserController,
                 TasksController,
+                CharityController,
               ]
 
 controllers.each do |controller|
