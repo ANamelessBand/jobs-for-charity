@@ -10,6 +10,45 @@ class Task < Sequel::Model
   end
 
   class << self
+    def by_status(code)
+      where(state: code).all
+    end
+
+    def opened
+      by_status 0
+    end
+
+    def in_progress
+      by_status 1
+    end
+
+    def closed
+      by_status 2
+    end
+
+    def completed
+      by_status 3
+    end
+  end
+
+  def update_status(code)
+    update(state: code)
+  end
+
+  def open
+    update_status 0
+  end
+
+  def start
+    update_status 1
+  end
+
+  def close
+    update_status 2
+  end
+
+  def complete
+    update_status 3
   end
 
   def owner
