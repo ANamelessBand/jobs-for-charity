@@ -17,7 +17,7 @@
             Completed tasks
           </th>
           <td>
-            <%= @completedTasksCount %>
+            <%= @user.completed_tasks.count %>
           </td>
         </tr>
         <tr>
@@ -25,7 +25,7 @@
             Total donated amount
           </th>
           <td>
-            <%= @rewardsDonated %>
+            <%= sprintf("$ %0.02f", @user.applications_donation.to_f) %>
           </td>
         </tr>
         <tr>
@@ -33,18 +33,18 @@
             Average rating
           </th>
           <td>
-            <%= @avgRating %>
+            <%= @user.applications_rating %>
           </td>
         </tr>
       </table>
     </div>
 
     <div class="tab-pane col-md-12" id="employer">
-      <%= show_tasks_table [] %>
+      <%= show_tasks_table @user.tasks %>
     </div>
 
     <div class="tab-pane col-md-12" id="employee">
-      <%= show_tasks_table [] %>
+      <%= show_applications_table @user.applications %>
     </div>
 
   </div>
