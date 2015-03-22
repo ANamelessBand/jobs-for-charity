@@ -1,7 +1,12 @@
 <div class="container">
   <div class="span8 offset2">
-    <h3><%= Task.completed.count.to_s + ' tasks completed by our users' %></h3>
-    <h3><%= sprintf("$ %0.02f raised for charity", Application.donations) %></h3>
+    <h3><%= 'Our users have completed ' + Task.completed.count.to_s + ' tasks and' %></h3>
+    <h3><%= sprintf("have raised $ %0.02f for charity.", Application.donations) %></h3>
+    <% if logged? %>
+    <h3>Thank you for being a part of us!</h3>
+    <% else %>
+    <h3><a href="/" class="btn btn-success">Join us</a> now and help us change the world!</h3>
+    <% end %>
   </div>
 </div>
 
